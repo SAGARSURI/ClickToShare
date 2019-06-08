@@ -1,4 +1,10 @@
-# click_to_share
+# ClickToShare
+
+# How to run:
+
+* Clone the project to your Machine.
+* Import the project to Android Studio.
+* Run directly on Android or iOS device.
 
 A new Flutter application.
 
