@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'camerascreen/camera_screen.dart';
 
@@ -11,6 +11,5 @@ class CameraApp extends StatelessWidget {
   }
 }
 
-Future main() async {
-  runApp(MaterialApp(home: CameraApp()));
-}
+void main() => runApp(CameraApp());
+

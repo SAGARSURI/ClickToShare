@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path/path.dart';
@@ -19,8 +17,6 @@ class _CameraScreenState extends State {
   int selectedCameraIdx;
   String imagePath;
 
-  final GlobalKey _scaffoldKey = GlobalKey();
-
   @override
   void initState() {
     super.initState();
@@ -36,6 +32,8 @@ class _CameraScreenState extends State {
         });
 
         _onCameraSwitched(cameras[selectedCameraIdx]).then((void v) {});
+      }else{
+        print("No camera available");
       }
     }).catchError((err) {
       print('Error: $err.code\nError Message: $err.message');
@@ -45,7 +43,6 @@ class _CameraScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text('Click To Share'),
         backgroundColor: Colors.blueGrey,
@@ -65,7 +62,7 @@ class _CameraScreenState extends State {
                 children: [
                   _cameraTogglesRowWidget(),
                   _captureControlRowWidget(context),
-                  _thumbnailWidget(),
+                  Spacer()
                 ],
               ),
               SizedBox(height: 20.0)
@@ -97,22 +94,6 @@ class _CameraScreenState extends State {
     ]);
   }
 
-  /// Display the thumbnail of the captured image
-  Widget _thumbnailWidget() {
-    return Expanded(
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: imagePath == null
-            ? SizedBox()
-            : SizedBox(
-          child: Image.file(File(imagePath)),
-          width: 64.0,
-          height: 64.0,
-        ),
-      ),
-    );
-  }
-
   /// Display the control bar with buttons to take pictures
   Widget _captureControlRowWidget(context) {
     return Expanded(
@@ -136,7 +117,7 @@ class _CameraScreenState extends State {
 
   /// Display a row of toggle to select the camera (or a message if no camera is available).
   Widget _cameraTogglesRowWidget() {
-    if (cameras == null) {
+    if (cameras == null || cameras.isEmpty) {
       return Row();
     }
 
@@ -201,12 +182,7 @@ class _CameraScreenState extends State {
     selectedCameraIdx =
     selectedCameraIdx < cameras.length - 1 ? selectedCameraIdx + 1 : 0;
     CameraDescription selectedCamera = cameras[selectedCameraIdx];
-
     _onCameraSwitched(selectedCamera);
-
-    setState(() {
-      selectedCameraIdx = selectedCameraIdx;
-    });
   }
 
   void _onCapturePressed(context) async {
