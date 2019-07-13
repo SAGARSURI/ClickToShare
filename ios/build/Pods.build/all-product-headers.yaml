@@ -4,7 +4,7 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Headers",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/Pods_Runner.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -14,24 +14,24 @@
         {
           'type': 'file',
           'name': "Pods_Runner-Swift.h",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Headers/Pods_Runner-Swift.h"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/Pods_Runner.framework/Headers/Pods_Runner-Swift.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Modules",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/Pods_Runner.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphonesimulator/Pods-Runner.build/module.modulemap"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphoneos/Pods-Runner.build/module.modulemap"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/camera/camera.framework/Headers",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/camera/camera.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -41,7 +41,7 @@
         {
           'type': 'file',
           'name': "camera-Swift.h",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/camera/camera.framework/Headers/camera-Swift.h"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/camera/camera.framework/Headers/camera-Swift.h"
         },
         {
           'type': 'file',
@@ -52,18 +52,18 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/camera/camera.framework/Modules",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/camera/camera.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphonesimulator/camera.build/module.modulemap"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphoneos/camera.build/module.modulemap"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/esys_flutter_share/esys_flutter_share.framework/Headers",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/esys_flutter_share/esys_flutter_share.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -73,7 +73,7 @@
         {
           'type': 'file',
           'name': "esys_flutter_share-Swift.h",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/esys_flutter_share/esys_flutter_share.framework/Headers/esys_flutter_share-Swift.h"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/esys_flutter_share/esys_flutter_share.framework/Headers/esys_flutter_share-Swift.h"
         },
         {
           'type': 'file',
@@ -84,18 +84,18 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/esys_flutter_share/esys_flutter_share.framework/Modules",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/esys_flutter_share/esys_flutter_share.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphonesimulator/esys_flutter_share.build/module.modulemap"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphoneos/esys_flutter_share.build/module.modulemap"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/path_provider/path_provider.framework/Headers",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/path_provider/path_provider.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -105,7 +105,7 @@
         {
           'type': 'file',
           'name': "path_provider-Swift.h",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/path_provider/path_provider.framework/Headers/path_provider-Swift.h"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/path_provider/path_provider.framework/Headers/path_provider-Swift.h"
         },
         {
           'type': 'file',
@@ -116,12 +116,12 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphonesimulator/path_provider/path_provider.framework/Modules",
+      'name': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/build/ios/Debug-iphoneos/path_provider/path_provider.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphonesimulator/path_provider.build/module.modulemap"
+          'external-contents': "/Users/sagarsuri/Downloads/raywenderlich/click_to_share/ios/build/Pods.build/Debug-iphoneos/path_provider.build/module.modulemap"
         }
       ]
     }

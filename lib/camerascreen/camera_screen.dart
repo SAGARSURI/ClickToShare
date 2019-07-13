@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import '../previewscreen/preview_screen.dart';
@@ -20,10 +20,8 @@ class _CameraScreenState extends State {
   @override
   void initState() {
     super.initState();
-
-    // Get the list of available cameras.
-    // Then set the first camera as selected.
     availableCameras().then((availableCameras) {
+
       cameras = availableCameras;
 
       if (cameras.length > 0) {
@@ -31,13 +29,42 @@ class _CameraScreenState extends State {
           selectedCameraIdx = 0;
         });
 
-        _onCameraSwitched(cameras[selectedCameraIdx]).then((void v) {});
+        _initCameraController(cameras[selectedCameraIdx]).then((void v) {});
       }else{
         print("No camera available");
       }
     }).catchError((err) {
       print('Error: $err.code\nError Message: $err.message');
     });
+  }
+
+  Future _initCameraController(CameraDescription cameraDescription) async {
+    if (controller != null) {
+      await controller.dispose();
+    }
+
+    controller = CameraController(cameraDescription, ResolutionPreset.high);
+
+    // If the controller is updated then update the UI.
+    controller.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+
+      if (controller.value.hasError) {
+        print('Camera error ${controller.value.errorDescription}');
+      }
+    });
+
+    try {
+      await controller.initialize();
+    } on CameraException catch (e) {
+      _showCameraException(e);
+    }
+
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -73,7 +100,7 @@ class _CameraScreenState extends State {
     );
   }
 
-  /// Display 'Loading' text when the camera is still loading.
+  /// Display Camera preview.
   Widget _cameraPreviewWidget() {
     if (controller == null || !controller.value.isInitialized) {
       return const Text(
@@ -86,12 +113,10 @@ class _CameraScreenState extends State {
       );
     }
 
-    return Stack(children: <Widget>[
-      AspectRatio(
+    return AspectRatio(
         aspectRatio: controller.value.aspectRatio,
         child: CameraPreview(controller),
-      )
-    ]);
+      );
   }
 
   /// Display the control bar with buttons to take pictures
@@ -118,7 +143,7 @@ class _CameraScreenState extends State {
   /// Display a row of toggle to select the camera (or a message if no camera is available).
   Widget _cameraTogglesRowWidget() {
     if (cameras == null || cameras.isEmpty) {
-      return Row();
+      return Spacer();
     }
 
     CameraDescription selectedCamera = cameras[selectedCameraIdx];
@@ -149,40 +174,11 @@ class _CameraScreenState extends State {
     }
   }
 
-  Future _onCameraSwitched(CameraDescription cameraDescription) async {
-    if (controller != null) {
-      await controller.dispose();
-    }
-
-    controller = CameraController(cameraDescription, ResolutionPreset.high);
-
-    // If the controller is updated then update the UI.
-    controller.addListener(() {
-      if (mounted) {
-        setState(() {});
-      }
-
-      if (controller.value.hasError) {
-        print('Camera error ${controller.value.errorDescription}');
-      }
-    });
-
-    try {
-      await controller.initialize();
-    } on CameraException catch (e) {
-      _showCameraException(e);
-    }
-
-    if (mounted) {
-      setState(() {});
-    }
-  }
-
   void _onSwitchCamera() {
     selectedCameraIdx =
     selectedCameraIdx < cameras.length - 1 ? selectedCameraIdx + 1 : 0;
     CameraDescription selectedCamera = cameras[selectedCameraIdx];
-    _onCameraSwitched(selectedCamera);
+    _initCameraController(selectedCamera);
   }
 
   void _onCapturePressed(context) async {
@@ -196,6 +192,7 @@ class _CameraScreenState extends State {
         (await getTemporaryDirectory()).path,
         '${DateTime.now()}.png',
       );
+      print(path);
       await controller.takePicture(path);
 
       // If the picture was taken, display it on a new screen
@@ -210,11 +207,11 @@ class _CameraScreenState extends State {
       print(e);
     }
   }
-}
 
-void _showCameraException(CameraException e) {
-  String errorText = 'Error: ${e.code}\nError Message: ${e.description}';
-  print(errorText);
+  void _showCameraException(CameraException e) {
+    String errorText = 'Error: ${e.code}\nError Message: ${e.description}';
+    print(errorText);
 
-  print('Error: ${e.code}\n${e.description}');
+    print('Error: ${e.code}\n${e.description}');
+  }
 }

@@ -23,17 +23,26 @@ class _PreviewImageScreenState extends State<PreviewImageScreen> {
       ),
       body: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Image.file(File(widget.imagePath)),
+            Expanded(
+                flex: 2,
+                child: Image.file(File(widget.imagePath), fit: BoxFit.cover)),
             SizedBox(height: 10.0),
-            RaisedButton(
-              onPressed: () {
-                getBytesFromFile().then((bytes) {
-                  Share.file('Share via:', basename(widget.imagePath),
-                      bytes.buffer.asUint8List(), 'image/png');
-                });
-              },
-              child: Text('Share'),
+            Flexible(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(60.0),
+                child: RaisedButton(
+                  onPressed: () {
+                    getBytesFromFile().then((bytes) {
+                      Share.file('Share via:', basename(widget.imagePath),
+                          bytes.buffer.asUint8List(), 'image/png');
+                    });
+                  },
+                  child: Text('Share'),
+                ),
+              ),
             ),
           ],
         ),
